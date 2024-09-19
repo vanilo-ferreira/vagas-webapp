@@ -15,6 +15,7 @@ import ResetPassword from '../pages/ResetPassword';
 import ConfirmRegister from '../pages/ConfirmRegister';
 import CompanyPortal from '../pages/CompanyPortal';
 import CandidatePortal from '../pages/CandidatePortal';
+import AppliedVacancies from '../pages/AppliedVacancies';
 import JobApply from '../pages/ApplyJob';
 import { ProfileSettings } from '../pages/ProfileSettings';
 import { CandidateSettings } from '../pages/CandidateSettings';
@@ -39,9 +40,9 @@ const NavRoutes: React.FC = () => {
                 </Route>
 
                 <Route element={<LoginLayout />}>
-	                <Route path="/login" element={<Login />} />
+                    <Route path="/login" element={<Login />} />
                 </Route>
-                
+
                 <Route path="confirm-email" element={<ConfirmEmail />} />
                 <Route path="userconfirmation" element={<ConfirmRegister />} />
                 <Route
@@ -60,7 +61,10 @@ const NavRoutes: React.FC = () => {
                     }
                 />
                 <Route path="/candidate-portal/job" element={<FeedJobs />} />
-                <Route path="/candidate-portal/job/selected/:id" element={<JobSelected />} />
+                <Route
+                    path="/candidate-portal/job/selected/:id"
+                    element={<JobSelected />}
+                />
 
                 {/* atualizar layout */}
                 <Route
@@ -143,6 +147,15 @@ const NavRoutes: React.FC = () => {
 
                 <Route path="report/:id" element={<Report />} />
                 <Route path="*" element={<ErrorPage />} />
+
+                <Route
+                    path="my-applications"
+                    element={
+                        <RequireAuth>
+                            <AppliedVacancies />
+                        </RequireAuth>
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );
