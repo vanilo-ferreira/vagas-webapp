@@ -15,7 +15,7 @@ import ResetPassword from '../pages/ResetPassword';
 import ConfirmRegister from '../pages/ConfirmRegister';
 import CompanyPortal from '../pages/CompanyPortal';
 import CandidatePortal from '../pages/CandidatePortal';
-import AppliedVacancies from '../pages/AppliedVacancies';
+import MyApplications from '../pages/MyApplications';
 import JobApply from '../pages/ApplyJob';
 import { ProfileSettings } from '../pages/ProfileSettings';
 import { CandidateSettings } from '../pages/CandidateSettings';
@@ -152,7 +152,7 @@ const NavRoutes: React.FC = () => {
                     path="my-applications"
                     element={
                         <RequireAuth>
-                            <AppliedVacancies />
+                            <MyApplications />
                         </RequireAuth>
                     }
                 />
